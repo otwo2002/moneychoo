@@ -1,5 +1,6 @@
 package com.example.fready.moneychoo;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -49,17 +50,31 @@ public class InfoFragment extends Fragment{
         calButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goodInfoVO = new GoodInfoVO(
-                        ((TextView) (rootView.findViewById(R.id.goodPrice))).getText().toString(),
-                        ((TextView) (rootView.findViewById(R.id.tax))).getText().toString(),
-                        ((TextView) (rootView.findViewById(R.id.localShipCharge))).getText().toString(),
+                String goodWeight= ((TextView) (rootView.findViewById(R.id.goodWeight))).getText().toString();
+                //입력값 체크
+                if(goodWeight ==null || goodWeight.trim().equals("") || goodWeight.trim().equals("0")){
+                    AlertDialog dialog;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(InfoFragment.this.getActivity());
+                    dialog = builder.setMessage("상품무게를 입력해주세요")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                }else{
+                    goodInfoVO = new GoodInfoVO(
+                            ((TextView) (rootView.findViewById(R.id.goodPrice))).getText().toString(),
+                            ((TextView) (rootView.findViewById(R.id.tax))).getText().toString(),
+                            ((TextView) (rootView.findViewById(R.id.localShipCharge))).getText().toString(),
 
-                        ((TextView) (rootView.findViewById(R.id.goodWidth))).getText().toString(),
-                        ((TextView) (rootView.findViewById(R.id.goodHeight))).getText().toString(),
-                        ((TextView) (rootView.findViewById(R.id.goodVertical))).getText().toString(),
-                        ((TextView) (rootView.findViewById(R.id.goodWeight))).getText().toString()
-                );
-                mainActivity.callResult(goodInfoVO);
+                            ((TextView) (rootView.findViewById(R.id.goodWidth))).getText().toString(),
+                            ((TextView) (rootView.findViewById(R.id.goodHeight))).getText().toString(),
+                            ((TextView) (rootView.findViewById(R.id.goodVertical))).getText().toString(),
+                            goodWeight
+                    );
+                    mainActivity.callResult(goodInfoVO);
+
+                }
+
+
             }
         });
         return rootView;
