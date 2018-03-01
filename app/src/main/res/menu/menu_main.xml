@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--item
+        android:id="@+id/menu_cal"
+        android:title="배송비계산"
+        android:icon="@drawable/if_calculator_49444"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_mail"
+        android:title="개선사항보내기"
+        android:icon="@drawable/if_008_mail_183573"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:title="더보기"
+        android:icon="@drawable/if_menu_83338"
+        app:showAsAction="always"/-->
+</menu>
