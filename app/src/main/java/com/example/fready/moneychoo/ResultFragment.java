@@ -11,7 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -73,7 +72,10 @@ public class ResultFragment extends Fragment {
         }
         //리스트 화면에 붙혀줌.
         calShippingPrice(voList);
-        resultPoundView.setText("실무게:"+voList.get(0).getRealWeight()+"부피무게"+voList.get(0).getVolumeWeight()+" 적용무게:"+voList.get(0).getApplyWeight());
+        resultPoundView.setText("실무게:"+voList.get(0).getRealWeight()
+                +"lbs  부피무게"+voList.get(0).getVolumeWeight()
+                +"lbs  적용무게:"+voList.get(0).getApplyWeight()
+                +"lbs" );
         return rootView;
     }
     //데이터를 관리하는 어뎁터

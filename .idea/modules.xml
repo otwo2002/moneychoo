@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/json-simple-1.1.2/json-simple-1.1.2.iml" filepath="$PROJECT_DIR$/json-simple-1.1.2/json-simple-1.1.2.iml" />
+      <module fileurl="file://C:\Users\fready\AndroidStudioProjects\moneychoo\json-lib\json.iml" filepath="C:\Users\fready\AndroidStudioProjects\moneychoo\json-lib\json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/json-simple-1.1.1/json-simple-1.1.1.iml" filepath="$PROJECT_DIR$/json-simple-1.1.1/json-simple-1.1.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/moneychoo.iml" filepath="$PROJECT_DIR$/moneychoo.iml" />
     </modules>
   </component>

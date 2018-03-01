@@ -99,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
 
     //메인화면에서 뒤로버튼 두번누르면 화면 종료
 
+    private long lastTimeBackPressed;
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() - lastTimeBackPressed < 1500){
+            finish();
+            return;
+        }
+        Toast.makeText(this, "어플리케이션이 종료됩니다. ", Toast.LENGTH_LONG).show();
+        lastTimeBackPressed = System.currentTimeMillis();
+    }
 
     @Override
     protected void onStart() {
