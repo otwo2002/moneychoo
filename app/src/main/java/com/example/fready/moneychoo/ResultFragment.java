@@ -80,6 +80,7 @@ public class ResultFragment extends Fragment {
         return rootView;
     }
     //데이터를 관리하는 어뎁터
+    ////
     class ResultAdapter extends BaseAdapter{
         ArrayList<CompShppingAgentVO> items = new ArrayList<CompShppingAgentVO>();
         @Override
