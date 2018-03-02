@@ -70,6 +70,7 @@ public class ResultFragment extends Fragment {
                 }
             }
         }
+        //////
         //리스트 화면에 붙혀줌.
         calShippingPrice(voList);
         resultPoundView.setText("실무게:"+voList.get(0).getRealWeight()
