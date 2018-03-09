@@ -108,10 +108,11 @@ public class ResultFragment extends Fragment {
             }
             CompShppingAgentVO item = items.get(i);
             view.setAgent(item.getAgent());
+            //예상국제배송비
             if(item.getShppingCharge().equals("0") ){
-                view.setShppingCharge("예상국제배송비:요금표 범위 초과!");
+                view.setShppingCharge("범위초과!");
             }else{
-                view.setShppingCharge("예상국제배송비 :"+item.getShppingCharge()+"$");
+                view.setShppingCharge(item.getShppingCharge()+"$");
             }
             //view.setRealWeight(item.getRealWeight()+" lbs");
             view.setApplyWeight(item.getApplyWeight()+" lbs");
@@ -121,7 +122,7 @@ public class ResultFragment extends Fragment {
                 view.setVolumeWeight(item.getVolumeWeight()+" lbs");
             }
 
-            view.setLocalShipCharge("국내배송비 :"+item.getLocalShipChage()); //한국국내배송비
+            view.setLocalShipCharge(item.getLocalShipChage()); //한국국내배송비
             return view;
         }
         //데이터 넣기
@@ -308,7 +309,7 @@ public class ResultFragment extends Fragment {
             }else if(shippingGubun.equals("yogirloo")){
                 vo.setAgent("요걸루");
                 vo.setGubun("해상");
-                vo.setLocalShipChage("2차결제\\n국내택배요금표에준함");
+                vo.setLocalShipChage("2차결제발생");
             }
 
             vo.setRealWeight(goodWeight);

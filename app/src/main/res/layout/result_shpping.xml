@@ -29,34 +29,53 @@
             android:text="적용무게"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="10dp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:id="@+id/volumeWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="10dp" />
-            <TextView
-                android:id="@+id/applyWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="10dp" />
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/volumeWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10dp" />
+        <TextView
+            android:id="@+id/applyWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="10dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="국제배송비:"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="국내배송비:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="10dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="4"
+        android:layout_weight="2"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -67,7 +86,7 @@
             android:id="@+id/shppingCharge"
             android:textColor="@android:color/holo_orange_dark"
             android:textSize="10dp"
-            android:gravity="center_horizontal"/>
+            android:gravity="left"/>
 
         <TextView
             android:id="@+id/localShipCharge"
@@ -76,6 +95,6 @@
             android:text=""
             android:textColor="@android:color/holo_orange_dark"
             android:textSize="10dp"
-            android:gravity="center_horizontal"/>
+            android:gravity="left"/>
     </LinearLayout>
 </LinearLayout>

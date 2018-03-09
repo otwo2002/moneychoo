@@ -113,7 +113,7 @@ public class InfoFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = (ViewGroup) inflater.inflate(R.layout.info_frag, container, false);
-        Toast.makeText(rootView.getContext(), "onCreateView", Toast.LENGTH_LONG).show();
+        //Toast.makeText(rootView.getContext(), "onCreateView", Toast.LENGTH_LONG).show();
         return rootView;
     }
 
