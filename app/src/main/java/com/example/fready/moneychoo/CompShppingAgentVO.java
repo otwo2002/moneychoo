@@ -15,7 +15,7 @@ public class CompShppingAgentVO {
     private String volumeWeight;  //부피무게
     private String applyWeight; //적용무게
     private String shppingCharge;   //운송요금
-    private String localChage; //국내배송비
+    private String localShipChage; //국내배송비
     private String totalChage;   //합계배송비
     public CompShppingAgentVO() {
     }
@@ -68,12 +68,12 @@ public class CompShppingAgentVO {
         this.shppingCharge = shppingCharge;
     }
 
-    public String getLocalChage() {
-        return localChage;
+    public String getLocalShipChage() {
+        return localShipChage;
     }
 
-    public void setLocalChage(String localChage) {
-        this.localChage = localChage;
+    public void setLocalShipChage(String localChage) {
+        this.localShipChage = localChage;
     }
 
     public String getTotalChage() {

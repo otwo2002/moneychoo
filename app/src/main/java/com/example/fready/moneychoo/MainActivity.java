@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         infoFragment = new InfoFragment();
-        resultFragment = new ResultFragment();
         eventFragment = new EventFragment();
         weightFragment = new WeightFragment();
         //화면에 프레그먼트 화면 붙혀줌.
@@ -76,13 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
 
             }
-
-
         });
-
     }
 
     public void callResult(GoodInfoVO goodInfoVO){
+
         Bundle bundle = new Bundle();
         bundle.putString("goodPrice", goodInfoVO.getGoodPrice());
         bundle.putString("tax", goodInfoVO.getTax());
@@ -91,14 +88,17 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("goodHeight", goodInfoVO.getGoodHeight());
         bundle.putString("goodVertical", goodInfoVO.getGoodVertical());
         bundle.putString("goodWeight", goodInfoVO.getGoodWeight());
-        //Toast.makeText(this, "++++goodWeight++"+ goodInfoVO.getGoodWeight(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "MainAcivity.callResult", Toast.LENGTH_LONG).show();
+        resultFragment = new ResultFragment();  //결과값 생성
         resultFragment.setArguments(bundle);
+        System.out.print("+++++++++++++++++++++bundle+++++++++++++++++++++++");
+        System.out.println( goodInfoVO.getGoodWeight());
+        //Toast.makeText(this, "MainAcivity.callResult+resultFragment", Toast.LENGTH_LONG).show();
         getSupportFragmentManager().beginTransaction().replace(R.id.calResult, resultFragment).commit();
 
     }
 
     //메인화면에서 뒤로버튼 두번누르면 화면 종료
-
     private long lastTimeBackPressed;
     @Override
     public void onBackPressed() {

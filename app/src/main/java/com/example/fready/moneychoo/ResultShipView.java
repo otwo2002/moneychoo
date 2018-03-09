@@ -21,10 +21,13 @@ public class ResultShipView extends LinearLayout {
     TextView textShppingCharge;
     TextView textRealWeight;
     TextView textVolumeWeight;
+    TextView textLocalShipCharge;
+
 
     public ResultShipView(Context context) {
         super(context);
         init(context);
+
     }
 
     public ResultShipView(Context context, @Nullable AttributeSet attrs) {
@@ -38,8 +41,9 @@ public class ResultShipView extends LinearLayout {
         textAgent = (TextView)findViewById(R.id.agent);
         textApplyWeight = (TextView)findViewById(R.id.applyWeight);
         textShppingCharge = (TextView)findViewById(R.id.shppingCharge);
-        textRealWeight = (TextView)findViewById(R.id.realWeight);
+        //textRealWeight = (TextView)findViewById(R.id.realWeight);
         textVolumeWeight= (TextView)findViewById(R.id.volumeWeight);
+        textLocalShipCharge= (TextView)findViewById(R.id.localShipCharge);
     }
 
     public void setAgent(String agent){
@@ -58,5 +62,5 @@ public class ResultShipView extends LinearLayout {
     public void setVolumeWeight(String volumeWeight){
         textVolumeWeight.setText(volumeWeight);
     }
-
+    public void setLocalShipCharge(String localShipCharge){textLocalShipCharge.setText(localShipCharge);}
 }

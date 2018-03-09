@@ -38,6 +38,7 @@ public class ResultFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        System.out.print("ResultFragment onCreateView %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         rootView = (ViewGroup) inflater.inflate(R.layout.result_frag, container, false);
         listView=(ListView)rootView.findViewById(R.id.listView);
         resultPoundView=(TextView)rootView.findViewById(R.id.result);
@@ -73,10 +74,9 @@ public class ResultFragment extends Fragment {
         //////
         //리스트 화면에 붙혀줌.
         calShippingPrice(voList);
+        //실무게는 모두 같지만 부피무게랑 적용무게는 업체별로 달라질수있음.
         resultPoundView.setText("실무게:"+voList.get(0).getRealWeight()
-                +"lbs  부피무게"+voList.get(0).getVolumeWeight()
-                +"lbs  적용무게:"+voList.get(0).getApplyWeight()
-                +"lbs" );
+                +"lbs " );
         return rootView;
     }
     //데이터를 관리하는 어뎁터
@@ -109,14 +109,19 @@ public class ResultFragment extends Fragment {
             CompShppingAgentVO item = items.get(i);
             view.setAgent(item.getAgent());
             if(item.getShppingCharge().equals("0") ){
-                view.setShppingCharge("요금표 범위 초과!");
+                view.setShppingCharge("예상국제배송비:요금표 범위 초과!");
             }else{
-                view.setShppingCharge(item.getShppingCharge()+"$");
+                view.setShppingCharge("예상국제배송비 :"+item.getShppingCharge()+"$");
+            }
+            //view.setRealWeight(item.getRealWeight()+" lbs");
+            view.setApplyWeight(item.getApplyWeight()+" lbs");
+            if(item.getVolumeWeight()==null || item.getVolumeWeight().trim().equals("") || item.getVolumeWeight().equals("0")){
+                view.setVolumeWeight("-");
+            }else{
+                view.setVolumeWeight(item.getVolumeWeight()+" lbs");
             }
 
-            view.setApplyWeight(item.getApplyWeight()+"lbs");
-            view.setRealWeight(item.getRealWeight()+"lbs");
-            view.setVolumeWeight(item.getVolumeWeight()+"lbs");
+            view.setLocalShipCharge("국내배송비 :"+item.getLocalShipChage()); //한국국내배송비
             return view;
         }
         //데이터 넣기
@@ -238,7 +243,14 @@ public class ResultFragment extends Fragment {
                 BigDecimal vertical = new BigDecimal(goodVertical) ;  //세로
                 BigDecimal height = new BigDecimal(goodHeight)  ;  //높이
                 System.out.println("width=>"+width+"  height==>"+height+"  vertical==>"+vertical);
-                volumeWeight =( width.multiply(height.multiply(vertical)) ).divide(new BigDecimal(166),  BigDecimal.ROUND_UP);
+                if(shippingGubun.equals("yogirloo")){
+                    //요걸루의 경우 부피무게 기준이 다름 CBM으로 다시 계산방식 해줘야 함.
+                    volumeWeight =( width.multiply(height.multiply(vertical)) ).multiply(new BigDecimal("0.000016"));
+
+                }else{
+                    volumeWeight =( width.multiply(height.multiply(vertical)) ).divide(new BigDecimal(166),  BigDecimal.ROUND_UP);
+
+                }
                 //입력받은 무게의 값을 조정하여 가격을 산정함.
                 System.out.println("부피무게---->"+volumeWeight);
 
@@ -284,15 +296,19 @@ public class ResultFragment extends Fragment {
             if(shippingGubun.equals("malltail")){
                 vo.setAgent("몰테일");
                 vo.setGubun("항공");
+                vo.setLocalShipChage("-");
             }else if(shippingGubun.equals("nygirlz")){
                 vo.setAgent("뉴욕걸즈");
                 vo.setGubun("항공");
+                vo.setLocalShipChage("-");
             }else if(shippingGubun.equals("iporter")){
                 vo.setAgent("아이포터");
                 vo.setGubun("항공");
+                vo.setLocalShipChage("-");
             }else if(shippingGubun.equals("yogirloo")){
                 vo.setAgent("요걸루");
                 vo.setGubun("해상");
+                vo.setLocalShipChage("2차결제\\n국내택배요금표에준함");
             }
 
             vo.setRealWeight(goodWeight);

@@ -21,11 +21,6 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="실무게"
-            android:textSize="10dp" />
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
             android:text="부피무게"
             android:textSize="10dp" />
         <TextView
@@ -42,12 +37,6 @@
             android:orientation="vertical"
             android:layout_margin="10dp">
 
-            <TextView
-                android:id="@+id/realWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="10dp" />
             <TextView
                 android:id="@+id/volumeWeight"
                 android:layout_width="wrap_content"
@@ -67,23 +56,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예상배송비($)"
+            android:text=""
+            android:id="@+id/shppingCharge"
             android:textColor="@android:color/holo_orange_dark"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:gravity="center_horizontal"/>
 
         <TextView
-            android:id="@+id/shppingCharge"
+            android:id="@+id/localShipCharge"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="운송요금"
+            android:text=""
             android:textColor="@android:color/holo_orange_dark"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>
