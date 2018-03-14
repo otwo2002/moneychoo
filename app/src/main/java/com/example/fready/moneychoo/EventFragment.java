@@ -62,9 +62,10 @@ public class EventFragment extends Fragment {
 
         WebSettings settings= webView.getSettings();
         settings.setJavaScriptEnabled(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDisplayZoomControls(true);
         settings.setAllowContentAccess(true);
-        settings.setAllowContentAccess(true);
+
         webView.setWebViewClient(new WebViewClient()); //이걸안해주면 새창이 뜸
         webView.setWebChromeClient(new WebChromeClient());
         Button mallButton = rootView.findViewById(R.id.btnMalltail);
