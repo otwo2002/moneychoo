@@ -17,7 +17,13 @@ public class CompShppingAgentVO {
     private String shppingCharge;   //운송요금
     private String localShipChage; //국내배송비
     private String totalChage;   //합계배송비
+    private String note;         //계산결과 코맨트
+    private String shippingCenterName;   //배송센터명
+
+
+
     public CompShppingAgentVO() {
+
     }
 
     public String getAgent() {
@@ -82,5 +88,21 @@ public class CompShppingAgentVO {
 
     public void setTotalChage(String totalChage) {
         this.totalChage = totalChage;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getShippingCenterName() {
+        return shippingCenterName;
+    }
+
+    public void setShippingCenterName(String shippingCenterName) {
+        this.shippingCenterName = shippingCenterName;
     }
 }

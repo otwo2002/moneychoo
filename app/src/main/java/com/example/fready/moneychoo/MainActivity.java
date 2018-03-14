@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public void callResult(GoodInfoVO goodInfoVO){
 
         Bundle bundle = new Bundle();
+        bundle.putString("shippingCenter", goodInfoVO.getShippingCenter());
         bundle.putString("goodPrice", goodInfoVO.getGoodPrice());
         bundle.putString("tax", goodInfoVO.getTax());
         bundle.putString("localShpping", goodInfoVO.getLocalShipCharge());
@@ -102,11 +103,11 @@ public class MainActivity extends AppCompatActivity {
     private long lastTimeBackPressed;
     @Override
     public void onBackPressed() {
-        if(System.currentTimeMillis() - lastTimeBackPressed < 1500){
+        if(System.currentTimeMillis() - lastTimeBackPressed < 2000){
             finish();
             return;
         }
-        Toast.makeText(this, "어플리케이션이 종료됩니다. ", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "한번더 누르면 어플리케이션이 종료됩니다. ", Toast.LENGTH_LONG).show();
         lastTimeBackPressed = System.currentTimeMillis();
     }
 

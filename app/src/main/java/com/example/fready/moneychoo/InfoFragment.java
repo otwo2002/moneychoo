@@ -30,7 +30,7 @@ public class InfoFragment extends Fragment{
     String goodVertical;
     String goodWidth;
     String goodHeight;
-
+    Spinner spinner ;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -50,7 +50,7 @@ public class InfoFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
         //Toast.makeText(rootView.getContext(), "onActivityCreated", Toast.LENGTH_LONG).show();
 
-        Spinner spinner = (Spinner)rootView.findViewById(R.id.shippingCenter);
+        spinner = (Spinner)rootView.findViewById(R.id.shippingCenter);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 rootView.getContext(),android.R.layout.simple_spinner_item, items
@@ -96,6 +96,7 @@ public class InfoFragment extends Fragment{
 
     private void callResult(){
         goodInfoVO = new GoodInfoVO(
+                spinner.getSelectedItemPosition()+"",
                 ((TextView) (rootView.findViewById(R.id.goodPrice))).getText().toString(),
                 ((TextView) (rootView.findViewById(R.id.tax))).getText().toString(),
                 ((TextView) (rootView.findViewById(R.id.localShipCharge))).getText().toString(),
@@ -105,6 +106,7 @@ public class InfoFragment extends Fragment{
                 goodVertical,
                 goodWeight
         );
+        Toast.makeText(rootView.getContext(), "spinner.getSelectedItemPosition()-->"+spinner.getSelectedItemPosition(), Toast.LENGTH_LONG).show();
         //Toast.makeText(rootView.getContext(), "callResult", Toast.LENGTH_LONG).show();
         mainActivity.callResult(goodInfoVO);
 

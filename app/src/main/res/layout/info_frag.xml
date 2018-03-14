@@ -3,8 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
+    android:background="#FFFFFF"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_margin="5dp"
+        android:text="  물류센터선택후 무게, 규격을 입력하시면 예상배송료를 계산할수있어요! "
+        android:textSize="11dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/darker_gray"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

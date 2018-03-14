@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewFragment;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class EventFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -24,6 +25,7 @@ public class EventFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     ViewGroup rootView ;
+    WebView webView ;
 
     private OnFragmentInteractionListener mListener;
     FragmentManager manager;
@@ -55,16 +57,42 @@ public class EventFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_event, container, false);
-
+        webView = rootView.findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient()); //이걸안해주면 새창이 뜸
         Button mallButton = rootView.findViewById(R.id.btnMalltail);
+        Button nygirlzButton = rootView.findViewById(R.id.btnNygirlz);
+        Button iporterButton = rootView.findViewById(R.id.btnIporter);
+        Button yogirlooButton = rootView.findViewById(R.id.btnYogirloo);
         mallButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FramgentMallTailActivity mallActivity =new FramgentMallTailActivity();
+               /* FramgentMallTailActivity mallActivity =new FramgentMallTailActivity();
                 FragmentTransaction ft = manager.beginTransaction();
                 ft.addToBackStack(null);
                //ft.replace(R.id.webViewFragment, mallActivity);
                 ft.commit();
+                */
+                webView.loadUrl("http://post.malltail.com/eventservices/open_events");
+            }
+        });
+        nygirlzButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.loadUrl("http://www.nygirlz.co.kr/mobile/event/dailyattend1803.php");
+            }
+        });
+        iporterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.loadUrl("https://m.iporter.com/ko/event");
+
+            }
+        });
+        yogirlooButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                webView.loadUrl("http://www.yogirloo.com/m/board/event/list.asp");
             }
         });
         return rootView;

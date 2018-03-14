@@ -5,6 +5,7 @@ package com.example.fready.moneychoo;
  */
 
 public class GoodInfoVO {
+    String shippingCenter;  //물류센터
     String goodPrice ;//상품가격
     String tax ;//세금
     String localShipCharge ;//현지배송비
@@ -13,7 +14,8 @@ public class GoodInfoVO {
     String  goodVertical ;//세로
     String  goodWeight ; //무게
 
-    public GoodInfoVO(String goodPrice, String tax, String localShipCharge, String goodWidth, String goodHeight, String goodVertical, String goodWeight) {
+    public GoodInfoVO(String shippingCenter, String goodPrice, String tax, String localShipCharge, String goodWidth, String goodHeight, String goodVertical, String goodWeight) {
+        this.shippingCenter = shippingCenter;
         this.goodPrice = goodPrice;
         this.tax = tax;
         this.localShipCharge = localShipCharge;
@@ -78,5 +80,13 @@ public class GoodInfoVO {
 
     public void setGoodWeight(String goodWeight) {
         this.goodWeight = goodWeight;
+    }
+
+    public String getShippingCenter() {
+        return shippingCenter;
+    }
+
+    public void setShippingCenter(String shippingCenter) {
+        this.shippingCenter = shippingCenter;
     }
 }

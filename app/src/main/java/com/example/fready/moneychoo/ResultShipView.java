@@ -22,6 +22,7 @@ public class ResultShipView extends LinearLayout {
     TextView textRealWeight;
     TextView textVolumeWeight;
     TextView textLocalShipCharge;
+   // TextView textNote;
 
 
     public ResultShipView(Context context) {
@@ -63,4 +64,8 @@ public class ResultShipView extends LinearLayout {
         textVolumeWeight.setText(volumeWeight);
     }
     public void setLocalShipCharge(String localShipCharge){textLocalShipCharge.setText(localShipCharge);}
+
+
+   // public void setTextNote(String note) { textNote.setText(note);}
+
 }

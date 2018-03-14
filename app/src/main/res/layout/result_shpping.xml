@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/agent"
-        android:layout_width="50dp"
+        android:layout_width="30dp"
         android:layout_height="60dp"
         android:layout_weight="1"
         android:text="배송대행지"/>
@@ -55,7 +55,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:layout_margin="10dp">
 
@@ -63,20 +63,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="국제배송비:"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:gravity="right"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="국내배송비:"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:gravity="right"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="2"
-        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="left"
         android:orientation="vertical">
 
         <TextView
