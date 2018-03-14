@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,7 +59,14 @@ public class EventFragment extends Fragment {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_event, container, false);
         webView = rootView.findViewById(R.id.webView);
+
+        WebSettings settings= webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDisplayZoomControls(true);
+        settings.setAllowContentAccess(true);
+        settings.setAllowContentAccess(true);
         webView.setWebViewClient(new WebViewClient()); //이걸안해주면 새창이 뜸
+        webView.setWebChromeClient(new WebChromeClient());
         Button mallButton = rootView.findViewById(R.id.btnMalltail);
         Button nygirlzButton = rootView.findViewById(R.id.btnNygirlz);
         Button iporterButton = rootView.findViewById(R.id.btnIporter);
