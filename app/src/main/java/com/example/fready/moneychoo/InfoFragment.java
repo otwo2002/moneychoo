@@ -1,9 +1,7 @@
 package com.example.fready.moneychoo;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
-import android.icu.util.RangeValueIterator;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +14,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 /**
  * Created by fready on 2018-02-05.
@@ -31,6 +34,7 @@ public class InfoFragment extends Fragment{
     String goodWidth;
     String goodHeight;
     Spinner spinner ;
+    private AdView mAdView;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -48,6 +52,7 @@ public class InfoFragment extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        MobileAds.initialize(getContext(), R.string.banner_ad_test_unit_id+"");
         //Toast.makeText(rootView.getContext(), "onActivityCreated", Toast.LENGTH_LONG).show();
 
         spinner = (Spinner)rootView.findViewById(R.id.shippingCenter);
@@ -92,6 +97,43 @@ public class InfoFragment extends Fragment{
                 callResult();
             }
         });
+
+        //광고
+        // Sample AdMob app ID: ca-app-pub-3940256099942544/6300978111  - 테스트 아이디
+
+        mAdView = rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                //Toast.makeText(rootView.getContext(), "광고로드", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
     }
 
     private void callResult(){
@@ -106,7 +148,7 @@ public class InfoFragment extends Fragment{
                 goodVertical,
                 goodWeight
         );
-        Toast.makeText(rootView.getContext(), "spinner.getSelectedItemPosition()-->"+spinner.getSelectedItemPosition(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(rootView.getContext(), "spinner.getSelectedItemPosition()-->"+spinner.getSelectedItemPosition(), Toast.LENGTH_LONG).show();
         //Toast.makeText(rootView.getContext(), "callResult", Toast.LENGTH_LONG).show();
         mainActivity.callResult(goodInfoVO);
 

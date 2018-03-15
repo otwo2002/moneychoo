@@ -1,6 +1,7 @@
 package com.example.fready.moneychoo;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,8 +28,6 @@ public class EventFragment extends Fragment {
     private String mParam2;
     ViewGroup rootView ;
     WebView webView ;
-
-    private OnFragmentInteractionListener mListener;
     FragmentManager manager;
 
     public EventFragment() {
@@ -68,32 +67,48 @@ public class EventFragment extends Fragment {
 
         webView.setWebViewClient(new WebViewClient()); //이걸안해주면 새창이 뜸
         webView.setWebChromeClient(new WebChromeClient());
-        Button mallButton = rootView.findViewById(R.id.btnMalltail);
-        Button nygirlzButton = rootView.findViewById(R.id.btnNygirlz);
-        Button iporterButton = rootView.findViewById(R.id.btnIporter);
-        Button yogirlooButton = rootView.findViewById(R.id.btnYogirloo);
+        final Button mallButton = rootView.findViewById(R.id.btnMalltail);
+        final Button nygirlzButton = rootView.findViewById(R.id.btnNygirlz);
+        final Button iporterButton = rootView.findViewById(R.id.btnIporter);
+        final Button yogirlooButton = rootView.findViewById(R.id.btnYogirloo);
+        //최초 색상지정
+        mallButton.setBackgroundColor(Color.DKGRAY);
+        nygirlzButton.setBackgroundColor(Color.GRAY);
+        iporterButton.setBackgroundColor(Color.GRAY);
+        yogirlooButton.setBackgroundColor(Color.GRAY);
+        webView.loadUrl("http://post.malltail.com/eventservices/open_events");
         mallButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* FramgentMallTailActivity mallActivity =new FramgentMallTailActivity();
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.addToBackStack(null);
-               //ft.replace(R.id.webViewFragment, mallActivity);
-                ft.commit();
-                */
+                //mallButton.setTextColor();
+
                 webView.loadUrl("http://post.malltail.com/eventservices/open_events");
+                mallButton.setBackgroundColor(Color.DKGRAY);
+                nygirlzButton.setBackgroundColor(Color.GRAY);
+                iporterButton.setBackgroundColor(Color.GRAY);
+                yogirlooButton.setBackgroundColor(Color.GRAY);
             }
         });
         nygirlzButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 webView.loadUrl("http://www.nygirlz.co.kr/mobile/event/dailyattend1803.php");
+                mallButton.setBackgroundColor(Color.GRAY);
+                nygirlzButton.setBackgroundColor(Color.DKGRAY);
+                iporterButton.setBackgroundColor(Color.GRAY);
+                yogirlooButton.setBackgroundColor(Color.GRAY);
             }
         });
         iporterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 webView.loadUrl("https://m.iporter.com/ko/event");
+                mallButton.setBackgroundColor(Color.GRAY);
+                nygirlzButton.setBackgroundColor(Color.GRAY);
+                iporterButton.setBackgroundColor(Color.DKGRAY);
+                yogirlooButton.setBackgroundColor(Color.GRAY);
 
             }
         });
@@ -102,38 +117,12 @@ public class EventFragment extends Fragment {
             public void onClick(View view) {
 
                 webView.loadUrl("http://www.yogirloo.com/m/board/event/list.asp");
+                mallButton.setBackgroundColor(Color.GRAY);
+                nygirlzButton.setBackgroundColor(Color.GRAY);
+                iporterButton.setBackgroundColor(Color.GRAY);
+                yogirlooButton.setBackgroundColor(Color.DKGRAY);
             }
         });
         return rootView;
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
-    @SuppressLint("ValidFragment")
-    class FramgentMallTailActivity extends WebViewFragment{
-        @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            WebViewFragment f= new WebViewFragment();
-            WebView webView= f.getWebView();
-            WebSettings settings = webView.getSettings();
-            settings.setJavaScriptEnabled(true);
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl("http://post.malltail.com/eventservices/open_events");
-        }
     }
 }

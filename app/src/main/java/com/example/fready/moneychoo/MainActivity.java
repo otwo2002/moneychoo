@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
+
+
 public class MainActivity extends AppCompatActivity {
     InfoFragment infoFragment;      //제품 입력정보
     ResultFragment resultFragment;   //계산결과
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         infoFragment = new InfoFragment();
         eventFragment = new EventFragment();
         weightFragment = new WeightFragment();
@@ -37,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         //tab에 메뉴정보 입력
         TabLayout tab = (TabLayout)findViewById(R.id.tab);
         tab.addTab(tab.newTab().setText("배송비계산"),0,true);
-        tab.addTab(tab.newTab().setText("중량별배송비"),1,false);
+        tab.addTab(tab.newTab().setText("고정배송비"),1,false);
         tab.addTab(tab.newTab().setText("이벤트"),2,false);
+
         //탭클릭시 fragment변경하기 위해서 호출
         tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 

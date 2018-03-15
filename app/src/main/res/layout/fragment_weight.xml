@@ -8,6 +8,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="중량별배송비" />
+        android:text="고정배송비" />
 
 </FrameLayout>
